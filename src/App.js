@@ -1,24 +1,24 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-
+import Profile from './components/Profile';
+import Experience from './components/Experience';
+import Competences from './components/Competences';
+import Sidebar from './components/Sidebar';
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidebar />
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Profile />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/competences" element={<Competences />} />
+        </Routes>
+      </div>
     </div>
+  </Router>
   );
 }
 
